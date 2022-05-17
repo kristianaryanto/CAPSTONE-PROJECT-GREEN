@@ -1,5 +1,5 @@
 ,tanggal,stasiun,pm10,pm25,so2,co,o3,no2,max,critical
-0,2021-01-01,DKI2 (Kelapa Gading),38,58,2,11,65,6,65,O3
+0,2021-01-01,DKI2 (Kelapa Gading),38,58,20,11,65,6,65,O3
 1,2021-01-02,DKI2 (Kelapa Gading),29,46,"48.1877652873608
 ",12,80,12,80,O3
 2,2021-01-03,DKI2 (Kelapa Gading),37,59,"48.1877652873608
