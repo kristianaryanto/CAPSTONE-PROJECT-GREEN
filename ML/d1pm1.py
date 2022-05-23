@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import csv
 import pandas as pd
 
+#tetgit
+
 #df = pd.read_csv("https://raw.githubusercontent.com/kristianaryanto/CAPSTONE-PROJECT-GREEN/main/dataset/DKI1.csv")
 
 # Initialize lists
