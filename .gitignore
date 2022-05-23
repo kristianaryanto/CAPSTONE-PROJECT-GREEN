@@ -4,3 +4,11 @@ ML/DKI1/__pycache__/d1o3.cpython-38.pyc
 ML/DKI1/__pycache__/d1pm10.cpython-38.pyc
 ML/DKI1/__pycache__/d1pm25.cpython-38.pyc
 ML/DKI1/__pycache__/d1so2.cpython-38.pyc
+ML/DKI2/__pycache__/d1so2.cpython-38.pyc
+.gitignore
+ML/DKI2/DKI2.ipynb
+ML/DKI2/__pycache__/d1pm25.cpython-38.pyc
+ML/DKI2/__pycache__/d1pm10.cpython-38.pyc
+ML/DKI2/__pycache__/d1o3.cpython-38.pyc
+ML/DKI2/__pycache__/d1no2.cpython-38.pyc
+ML/DKI2/__pycache__/d1co.cpython-38.pyc
