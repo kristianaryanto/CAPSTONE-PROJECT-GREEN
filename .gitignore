@@ -12,3 +12,8 @@ ML/DKI2/__pycache__/d1pm10.cpython-38.pyc
 ML/DKI2/__pycache__/d1o3.cpython-38.pyc
 ML/DKI2/__pycache__/d1no2.cpython-38.pyc
 ML/DKI2/__pycache__/d1co.cpython-38.pyc
+ML/TFlite/saved_model/1/variables/variables.index
+ML/TFlite/saved_model/1/variables/variables.data-00000-of-00001
+ML/TFlite/saved_model/1/saved_model.pb
+ML/TFlite/model.tflite
+ML/DKI1/__pycache__/d1co2.cpython-38.pyc
