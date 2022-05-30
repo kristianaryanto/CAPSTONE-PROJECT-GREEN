@@ -141,4 +141,3 @@ def no2(tanggal):
   
 
 
-

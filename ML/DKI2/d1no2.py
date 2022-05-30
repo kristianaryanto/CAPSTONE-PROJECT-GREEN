@@ -15,7 +15,7 @@ time_step = []
 pm10 = []
 
 # Open CSV file
-with open('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/ML/DKI2.csv') as csvfile:
+with open('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/dataset/DKI2.csv') as csvfile:
   
   # Initialize reader
   reader = csv.reader(csvfile, delimiter=',')
@@ -139,6 +139,4 @@ def no2(tanggal):
   df = df[df['tanggal'] == tanggal]
   return df
   
-
-
 

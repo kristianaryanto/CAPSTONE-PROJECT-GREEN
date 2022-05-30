@@ -138,7 +138,3 @@ def co(tanggal):
   df = pd.concat ([df, df2],axis = 1)
   df = df[df['tanggal'] == tanggal]
   return df
-  
-
-
-

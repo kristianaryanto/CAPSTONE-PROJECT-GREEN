@@ -15,7 +15,7 @@ time_step = []
 pm10 = []
 
 # Open CSV file
-with open('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/dataset/DKI2.csv') as csvfile:
+with open('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/dataset/DKI3.csv') as csvfile:
   
   # Initialize reader
   reader = csv.reader(csvfile, delimiter=',')
@@ -26,7 +26,7 @@ with open('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/dataset/DKI2.csv') as csv
   # Append row and sunspot number to lists
   for row in reader:
     time_step.append(row[1])
-    pm10.append(float(row[6]))
+    pm10.append(float(row[11]))
 
 # Convert lists to numpy arrays
 time = np.array(time_step)
@@ -95,7 +95,7 @@ optimizer = tf.keras.optimizers.SGD(momentum=0.9)
 model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer)
 
 # Train the model
-history = model.fit(train_set, epochs=70, callbacks=[lr_schedule])
+history = model.fit(train_set, epochs=40, callbacks=[lr_schedule])
 
 
 def model_forecast(model, series, window_size, batch_size):
@@ -132,13 +132,18 @@ results = forecast.squeeze()
 # Compute the MAE
 #print(tf.keras.metrics.mean_absolute_error(x_valid, results).numpy())
 # for call modul
-def co(tanggal):
+def co2(tanggal):
   df = pd.DataFrame(time_valid, columns = ['tanggal'])
   df2 = pd.DataFrame(results, columns = ['Value'])
   df = pd.concat ([df, df2],axis = 1)
   df = df[df['tanggal'] == tanggal]
   return df
-  
 
-
-
+export_dir = 'saved_model/1'
+tf.saved_model.save(model, export_dir)
+# Convert the model.
+converter = tf.lite.TFLiteConverter.from_saved_model(export_dir)
+tflite_model = converter.convert()
+import pathlib
+tflite_model_file = pathlib.Path('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/ML/TFlite/DKI2/d2co2.tflite')
+tflite_model_file.write_bytes(tflite_model)
