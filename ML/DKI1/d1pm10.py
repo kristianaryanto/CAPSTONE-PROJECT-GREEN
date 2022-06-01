@@ -92,7 +92,7 @@ lr_schedule = tf.keras.callbacks.LearningRateScheduler(
 optimizer = tf.keras.optimizers.SGD(momentum=0.9)
 
 # Set the training parameters
-model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer)
+model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer,metrics=tf.keras.metrics.LogCoshError(name="LogCoshErro"))
 
 # Train the model
 history = model.fit(train_set, epochs=70, callbacks=[lr_schedule])

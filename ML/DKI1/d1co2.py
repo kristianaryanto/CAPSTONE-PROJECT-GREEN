@@ -79,8 +79,9 @@ train_set = windowed_dataset(x_train, window_size, batch_size, shuffle_buffer_si
 model = tf.keras.models.Sequential([
     tf.keras.layers.Dense(30, input_shape=[window_size], activation="relu"), 
     tf.keras.layers.Dense(64, activation="relu"),
+    #tf.keras.layers.Dropout(0.2),
     tf.keras.layers.Dense(32, activation="relu"),
-    tf.keras.layers.Dense(16, activation="relu"),
+    tf.keras.layers.Dense(16),
     tf.keras.layers.Dense(1)
 ])
 
@@ -92,10 +93,10 @@ lr_schedule = tf.keras.callbacks.LearningRateScheduler(
 optimizer = tf.keras.optimizers.SGD(momentum=0.9)
 
 # Set the training parameters
-model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer)
+model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer,metrics=tf.keras.metrics.LogCoshError(name="LCE"))
 
 # Train the model
-history = model.fit(train_set, epochs=40, callbacks=[lr_schedule])
+history = model.fit(train_set, epochs=50, callbacks=[lr_schedule])
 
 
 def model_forecast(model, series, window_size, batch_size):
