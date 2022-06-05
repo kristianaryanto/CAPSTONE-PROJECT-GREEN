@@ -15,7 +15,7 @@ time_step = []
 pm10 = []
 
 # Open CSV file
-with open('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/dataset/DKI3.csv') as csvfile:
+with open('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/dataset/DKI5.csv') as csvfile:
   
   # Initialize reader
   reader = csv.reader(csvfile, delimiter=',')
@@ -92,7 +92,7 @@ lr_schedule = tf.keras.callbacks.LearningRateScheduler(
 optimizer = tf.keras.optimizers.SGD(momentum=0.9)
 
 # Set the training parameters
-model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer,metrics=tf.keras.metrics.LogCoshError(name="LogCoshError"))
+model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer, metrics=tf.keras.metrics.LogCoshError(name="LogCoshError"))
 
 # Train the model
 history = model.fit(train_set, epochs=40, callbacks=[lr_schedule])
@@ -145,5 +145,5 @@ tf.saved_model.save(model, export_dir)
 converter = tf.lite.TFLiteConverter.from_saved_model(export_dir)
 tflite_model = converter.convert()
 import pathlib
-tflite_model_file = pathlib.Path('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/ML/TFlite/DKI2/d2co2.tflite')
+tflite_model_file = pathlib.Path('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/ML/TFlite/DKI5/d5co2.tflite')
 tflite_model_file.write_bytes(tflite_model)

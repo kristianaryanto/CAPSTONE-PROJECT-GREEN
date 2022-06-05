@@ -15,7 +15,7 @@ time_step = []
 pm10 = []
 
 # Open CSV file
-with open('//home/yance/capscrot/CAPSTONE-PROJECT-GREEN/ML/DKI3.csv') as csvfile:
+with open('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/dataset/DKI3.csv') as csvfile:
   
   # Initialize reader
   reader = csv.reader(csvfile, delimiter=',')
@@ -92,7 +92,7 @@ lr_schedule = tf.keras.callbacks.LearningRateScheduler(
 optimizer = tf.keras.optimizers.SGD(momentum=0.9)
 
 # Set the training parameters
-model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer)
+model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer,metrics=tf.keras.metrics.LogCoshError(name="LogCoshError"))
 
 # Train the model
 history = model.fit(train_set, epochs=70, callbacks=[lr_schedule])
