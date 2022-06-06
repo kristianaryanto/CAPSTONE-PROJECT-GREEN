@@ -141,5 +141,16 @@ def o3(tanggal):
   return df
 
 
+"""
+export_dir = 'saved_model/1'
+tf.saved_model.save(model, export_dir)
+# Convert the model.
+converter = tf.lite.TFLiteConverter.from_saved_model(export_dir)
+tflite_model = converter.convert()
+import pathlib
+tflite_model_file = pathlib.Path('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/ML/TFlite/DKI5/d5pm25.tflite')
+tflite_model_file.write_bytes(tflite_model)
+"""
+
 
 
