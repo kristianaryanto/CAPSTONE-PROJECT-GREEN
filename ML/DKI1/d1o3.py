@@ -132,12 +132,13 @@ results = forecast.squeeze()
 # Compute the MAE
 #print(tf.keras.metrics.mean_absolute_error(x_valid, results).numpy())
 # for call modul
-def o3(tanggal):
+def o3():
   df = pd.DataFrame(time_valid, columns = ['tanggal'])
   df2 = pd.DataFrame(results, columns = ['Value'])
-  df = pd.concat ([df, df2],axis = 1)
-  df = df[df['tanggal'] == tanggal]
-  return df
+  df3 = pd.concat ([df, df2],axis = 1)
+  print(df3)
+  #df = df[df['tanggal'] == tanggal]
+  return df3
 
 
 
