@@ -132,6 +132,7 @@ results = forecast.squeeze()
 # Compute the MAE
 #print(tf.keras.metrics.mean_absolute_error(x_valid, results).numpy())
 # for call modul
+"""
 def co(tanggal):
   df = pd.DataFrame(time_valid, columns = ['tanggal'])
   df2 = pd.DataFrame(results, columns = ['Value'])
@@ -139,6 +140,14 @@ def co(tanggal):
   df = df[df['tanggal'] == tanggal]
   return df
   
+"""
+def co():
+  df = pd.DataFrame(time_valid, columns = ['tanggal'])
+  df2 = pd.DataFrame(results, columns = ['Value'])
+  df3 = pd.concat ([df, df2],axis = 1)
+  print(df3)
+  #df = df[df['tanggal'] == tanggal]
+  return df3
 
 
 

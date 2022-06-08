@@ -97,7 +97,7 @@ model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer,metrics=tf.keras
 
 # Train the model
 history = model.fit(train_set, epochs=70, callbacks=[lr_schedule])
-
+model.evaluate(train_set)
 
 def model_forecast(model, series, window_size, batch_size):
 
@@ -133,6 +133,7 @@ results = forecast.squeeze()
 # Compute the MAE
 #print(tf.keras.metrics.mean_absolute_error(x_valid, results).numpy())
 # for call modul
+"""
 def no2(tanggal):
   df = pd.DataFrame(time_valid, columns = ['tanggal'])
   df2 = pd.DataFrame(results, columns = ['Value'])
@@ -140,6 +141,15 @@ def no2(tanggal):
   df = df[df['tanggal'] == tanggal]
   return df
   
+"""
+def no2():
+  df = pd.DataFrame(time_valid, columns = ['tanggal'])
+  df2 = pd.DataFrame(results, columns = ['Value'])
+  df3 = pd.concat ([df, df2],axis = 1)
+  print(df3)
+  #df = df[df['tanggal'] == tanggal]
+  return df3
+
 
 """
 export_dir = 'saved_model/1'

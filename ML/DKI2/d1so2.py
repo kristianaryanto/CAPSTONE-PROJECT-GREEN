@@ -15,7 +15,7 @@ time_step = []
 pm10 = []
 
 # Open CSV file
-with open('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/ML/DKI2.csv') as csvfile:
+with open('/home/yance/capscrot/CAPSTONE-PROJECT-GREEN/dataset/DKI2.csv') as csvfile:
   
   # Initialize reader
   reader = csv.reader(csvfile, delimiter=',')
@@ -132,6 +132,7 @@ results = forecast.squeeze()
 # Compute the MAE
 #print(tf.keras.metrics.mean_absolute_error(x_valid, results).numpy())
 # for call modul
+"""
 def so2(tanggal):
   df = pd.DataFrame(time_valid, columns = ['tanggal'])
   df2 = pd.DataFrame(results, columns = ['Value'])
@@ -139,6 +140,13 @@ def so2(tanggal):
   df = df[df['tanggal'] == tanggal]
   return df
   
+"""
 
-
+def so2():
+  df = pd.DataFrame(time_valid, columns = ['tanggal'])
+  df2 = pd.DataFrame(results, columns = ['Value'])
+  df3 = pd.concat ([df, df2],axis = 1)
+  print(df3)
+  #df = df[df['tanggal'] == tanggal]
+  return df3
 
